@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full font-[80%]">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Special design</title>
+		<!-- Font awesome library -->
+		<link rel="stylesheet" href="css/all.min.css" />
+		<!-- Normalize CSS -->
+		<link rel="stylesheet" href="css/normalize.css" />
+		<!-- TailwindCSS library -->
+		<link rel="stylesheet" href="css/output.css" />
+		<!-- Compiled CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body class="w-full h-full">
+		<!-- Landing -->
+		<section class="landing relative">
+			<div class="overlay">
+				<header
+					class="text-white px-12 sm:px-16 xd:px-28 pt-6 flex justify-between"
+				>
+					<div
+						class="logo font-bold text-md inline-block whitespace-nowrap"
+					>
+						Special Design
+					</div>
+					<nav class="w-fit">
+						<ul
+							class="links gap-4 w-fit hidden xd:flex absolute xd:static -top-full"
+						>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#about">about</a>
+							</li>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#skills">skills</a>
+							</li>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#gallery">gallery</a>
+							</li>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#timeline">timeline</a>
+							</li>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#features">features</a>
+							</li>
+							<li
+								class="transition hover:text-main-orange"
+							>
+								<a href="#testimonials">testimonials</a>
+							</li>
+						</ul>
+						<ul class="toggle-menu block xd:hidden">
+							<li class="cursor-pointer" id="menu">
+								<i class="fa-solid fa-bars text-lg"></i>
+							</li>
+						</ul>
+					</nav>
+				</header>
+			</div>
+		</section>
+		<script src="js/script.js"></script>
+	</body>
+</html>
