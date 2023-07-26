@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  :root {
+    --main-color: #ff9800;
+  }
   * {
     @apply capitalize box-border;
   }
@@ -13,7 +16,7 @@
     @apply max-w-full sm:max-w-full md:max-w-full lg:max-w-full px-4 py-2;
   }
   .overlay {
-    @apply absolute w-full h-full inset-0 z-50;
+    @apply absolute w-full h-full inset-0 z-10;
     background-color: rgba(0, 0, 0, 0.6);
   }
   li {
@@ -22,14 +25,37 @@
   section {
     @apply w-full h-full;
   }
+  [bg-main],
+  [hover-bg-main]:hover {
+    background-color: var(--main-color);
+  }
+  [c-main],
+  [hover-c-main]:hover {
+    color: var(--main-color);
+  }
+  .settings-box {
+    transition: 0.3s;
+  }
+  .settings-box.show {
+    @apply left-0;
+  }
+  .settings-box.show i::before {
+    @apply animate-spin;
+  }
+  .settings-box .settings .colors ul li.active {
+    @apply border-2 border-white;
+  }
+  .settings-box .settings :is(.randomBg, .bullets) button.active {
+    @apply opacity-100;
+  }
   .landing {
     background: url("../../src/assets/imgs/landing/01.jpg") no-repeat;
     background-size: cover;
   }
   .landing nav ul.show {
-    @apply flex w-full flex-col left-0 top-[10%] bg-white gap-0;
+    @apply flex w-full flex-col left-0 top-[10%] bg-white bg-opacity-40 gap-0;
   }
   .landing nav ul.show li {
-    @apply py-5 flex justify-center text-black;
+    @apply py-4 flex justify-center text-lg;
   }
 }

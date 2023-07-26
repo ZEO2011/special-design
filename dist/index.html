@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full font-[80%]">
+<html lang="en" class="h-full font-[80%] scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -17,6 +17,106 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body class="w-full h-full">
+		<!-- setting box -->
+		<div
+			class="settings-box fixed inset-0 w-52 h-full z-20 bg-white -left-52"
+		>
+			<i
+				class="fa-solid fa-gear fa-spin cursor-pointer absolute -right-8 top-32 w-8 h-8 bg-white grid place-items-center"
+			></i>
+			<div class="settings w-full h-full">
+				<div class="option-box colors bg-gray-200 m-4 p-2">
+					<h3
+						class="text-gray-500 font-bold mb-2 text-center w-full text-sm"
+					>
+						colors
+					</h3>
+					<ul
+						class="colors list flex gap-3 w-full h-full justify-center items-center p-1"
+					>
+						<li
+							data-color="#FF9800"
+							class="w-5 h-5 cursor-pointer bg-main-orange rounded-[50%] active"
+						></li>
+						<li
+							data-color="#E91E63"
+							class="w-5 h-5 cursor-pointer bg-main-pink rounded-[50%]"
+						></li>
+						<li
+							data-color="#009688"
+							class="w-5 h-5 cursor-pointer bg-main-green rounded-[50%]"
+						></li>
+						<li
+							data-color="#03A9F4"
+							class="w-5 h-5 cursor-pointer bg-main-blue rounded-[50%]"
+						></li>
+						<li
+							data-color="#4CAF50"
+							class="w-5 h-5 cursor-pointer bg-main-grass rounded-[50%]"
+						></li>
+					</ul>
+				</div>
+				<div class="option-box bg-gray-200 m-4 p-2">
+					<h3
+						class="text-gray-500 font-bold mb-2 text-center w-full text-sm"
+					>
+						Random Backgrounds
+					</h3>
+					<ul
+						class="randomBg list flex gap-3 w-full h-full justify-center items-center p-1"
+					>
+						<div class="buttons flex gap-2">
+							<button
+								bg-main
+								random="true"
+								class="text-white font-semibold px-4 rounded-md opacity-50 active"
+							>
+								yes
+							</button>
+							<button
+								bg-main
+								random="false"
+								class="text-white font-semibold px-4 rounded-md opacity-50"
+							>
+								no
+							</button>
+						</div>
+					</ul>
+				</div>
+				<div class="option-box bg-gray-200 m-4 p-2">
+					<h3
+						class="text-gray-500 font-bold mb-2 text-center w-full text-sm"
+					>
+						show bullets
+					</h3>
+					<ul
+						class="bullets list flex gap-3 w-full h-full justify-center items-center p-1"
+					>
+						<div class="buttons flex gap-2">
+							<button
+								bg-main
+								class="text-white font-semibold px-4 rounded-md opacity-50 active"
+							>
+								yes
+							</button>
+							<button
+								bg-main
+								class="text-white font-semibold px-4 rounded-md opacity-50"
+							>
+								no
+							</button>
+						</div>
+					</ul>
+				</div>
+				<div class="btn-container px-4">
+					<button
+						class="h-10 w-full bg-red-500 text-white font-bold"
+					>
+						reset options
+					</button>
+				</div>
+			</div>
+		</div>
 		<!-- Landing -->
 		<section class="landing relative">
 			<div class="overlay">
@@ -32,34 +132,22 @@
 						<ul
 							class="links gap-4 w-fit hidden xd:flex absolute xd:static -top-full"
 						>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#about">about</a>
 							</li>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#skills">skills</a>
 							</li>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#gallery">gallery</a>
 							</li>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#timeline">timeline</a>
 							</li>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#features">features</a>
 							</li>
-							<li
-								class="transition hover:text-main-orange"
-							>
+							<li hover-c-main class="transition">
 								<a href="#testimonials">testimonials</a>
 							</li>
 						</ul>
@@ -70,6 +158,24 @@
 						</ul>
 					</nav>
 				</header>
+				<main
+					class="w-full h-[92%] flex flex-col justify-center items-center z-20"
+				>
+					<div
+						class="text text-center text-white w-fit h-fit p-8"
+					>
+						<h1 class="xd:text-3xl font-bold mb-3 text-2xl">
+							We Are
+							<span c-main class="">Creative</span>
+							Agency
+						</h1>
+						<p class="xd:text-lg">
+							Lorem ipsum dolor sit amet consectetur
+							adipisicing elit. Repellendus odit nihil
+							ullam nesciunt quidem iste
+						</p>
+					</div>
+				</main>
 			</div>
 		</section>
 		<script src="js/script.js"></script>
