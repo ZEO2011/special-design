@@ -29,7 +29,7 @@ let images: string[] = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 let randomImageInt = setInterval(() => {
 	let randomNum: number = Math.floor(Math.random() * images.length);
 	if (landingBg !== null)
-		landingBg.style.backgroundImage = `url(../../src/assets/imgs/landing/${images[randomNum]})`;
+		landingBg.style.backgroundImage = `url(../src/assets/imgs/landing/${images[randomNum]})`;
 }, 10000);
 
 // check if there is any saved color

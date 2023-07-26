@@ -14,7 +14,7 @@ let images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 let randomImageInt = setInterval(() => {
     let randomNum = Math.floor(Math.random() * images.length);
     if (landingBg !== null)
-        landingBg.style.backgroundImage = `url(../../src/assets/imgs/landing/${images[randomNum]})`;
+        landingBg.style.backgroundImage = `url(../src/assets/imgs/landing/${images[randomNum]})`;
 }, 10000);
 if (localStorage.getItem("main-color") !== null) {
     let savedColor = eval(`${localStorage.getItem("main-color")}`);
