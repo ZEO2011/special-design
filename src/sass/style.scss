@@ -31,7 +31,8 @@
 	}
 	// components
 	[bg-main],
-	[hover-bg-main]:hover {
+	[hover-bg-main]:hover,
+	[before-bg-main]::before {
 		background-color: var(--main-color) !important;
 	}
 	[c-main],
