@@ -1,5 +1,6 @@
 "use strict";
 let html = document.querySelector("html");
+let allSects = document.querySelectorAll("section");
 let menu = document.getElementById("menu");
 let menuIcon = document.querySelector("#menu i");
 let linksContainer = document.querySelector("nav .links");
@@ -10,6 +11,7 @@ let settingsIcon = document.querySelector(".settings-box i");
 let colorSetting = document.querySelectorAll(".settings-box .colors li");
 let randomBgSetting = document.querySelectorAll(".settings-box .randomBg button");
 let bulletsSetting = document.querySelectorAll(".settings-box .bullets button");
+let randomInt;
 let images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
 let randomImageInt = setInterval(() => {
     let randomNum = Math.floor(Math.random() * images.length);
@@ -37,6 +39,7 @@ function removeAllExcept(status) {
 if (localStorage.getItem("randomImage") !== null) {
     if (localStorage.getItem("randomImage") === "false") {
         clearInterval(randomImageInt);
+        clearInterval(randomInt);
         removeAllExcept("false");
     }
     else {
@@ -72,10 +75,11 @@ randomBgSetting.forEach((button) => {
     button.addEventListener("click", function () {
         if (button.getAttribute("random") === "false") {
             clearInterval(randomImageInt);
+            clearInterval(randomInt);
             localStorage.setItem("randomImage", "false");
         }
         else {
-            setInterval(() => {
+            randomInt = setInterval(() => {
                 let randomNum = Math.floor(Math.random() * images.length);
                 if (landingBg !== null)
                     landingBg.style.backgroundImage = `url(../../src/assets/imgs/landing/${images[randomNum]})`;
@@ -85,4 +89,28 @@ randomBgSetting.forEach((button) => {
     });
 });
 settingsFunc(bulletsSetting);
+let observer = new IntersectionObserver((sections) => {
+    sections.forEach((section) => {
+        section.target.classList.toggle("animate", section.isIntersecting);
+        if (section.isIntersecting)
+            observer.unobserve(section.target);
+        if (section.isIntersecting) {
+            if (section.target.id === "skills") {
+                let progresses = document.querySelectorAll("#skills .progresses-container ul li progress");
+                progresses.forEach((progress) => {
+                    if (progress !== null) {
+                        let goal = progress.getAttribute("data-goal");
+                        if (goal !== null)
+                            progress.setAttribute("value", goal);
+                    }
+                });
+            }
+        }
+    });
+}, {
+    threshold: 0.5,
+});
+allSects.forEach((sect) => {
+    observer.observe(sect);
+});
 //# sourceMappingURL=script.js.map

@@ -1,5 +1,6 @@
 // Variables
 let html: HTMLHtmlElement | null = document.querySelector("html");
+let allSects: NodeListOf<Element> = document.querySelectorAll("section");
 let menu: HTMLElement | null = document.getElementById("menu");
 let menuIcon: HTMLElement | null = document.querySelector("#menu i");
 let linksContainer: HTMLElement | null = document.querySelector("nav .links");
@@ -17,10 +18,9 @@ let randomBgSetting: NodeListOf<Element> = document.querySelectorAll(
 let bulletsSetting: NodeListOf<Element> = document.querySelectorAll(
 	".settings-box .bullets button",
 );
+let randomInt: any;
 
 // Random background
-
-// randomImage function
 
 // array of images
 
@@ -63,6 +63,7 @@ if (localStorage.getItem("randomImage") !== null) {
 	if (localStorage.getItem("randomImage") === "false") {
 		// clear interval of random image
 		clearInterval(randomImageInt);
+		clearInterval(randomInt);
 		removeAllExcept("false");
 	} else {
 		removeAllExcept("true");
@@ -118,9 +119,10 @@ randomBgSetting.forEach((button: Element) => {
 		if (button.getAttribute("random") === "false") {
 			// clear interval of random image & save it in localStorage
 			clearInterval(randomImageInt);
+			clearInterval(randomInt);
 			localStorage.setItem("randomImage", "false");
 		} else {
-			setInterval(() => {
+			randomInt = setInterval(() => {
 				let randomNum: number = Math.floor(
 					Math.random() * images.length,
 				);
@@ -132,3 +134,42 @@ randomBgSetting.forEach((button: Element) => {
 	});
 });
 settingsFunc(bulletsSetting);
+
+// observe all sections for animate it
+
+let observer: IntersectionObserver = new IntersectionObserver(
+	(sections) => {
+		sections.forEach((section) => {
+			section.target.classList.toggle(
+				"animate",
+				section.isIntersecting,
+			);
+			if (section.isIntersecting) observer.unobserve(section.target);
+			// if current section is skills
+			if (section.isIntersecting) {
+				if (section.target.id === "skills") {
+					// increase the value to data-goal value
+					let progresses: NodeListOf<Element> =
+						document.querySelectorAll(
+							"#skills .progresses-container ul li progress",
+						);
+					progresses.forEach((progress: Element | null) => {
+						if (progress !== null) {
+							let goal: string | null =
+								progress.getAttribute("data-goal");
+							if (goal !== null)
+								progress.setAttribute("value", goal);
+						}
+					});
+				}
+			}
+		});
+	},
+	{
+		threshold: 0.5,
+	},
+);
+
+allSects.forEach((sect: Element) => {
+	observer.observe(sect);
+});

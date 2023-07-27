@@ -27,11 +27,14 @@
   }
   [bg-main],
   [hover-bg-main]:hover {
-    background-color: var(--main-color);
+    background-color: var(--main-color) !important;
   }
   [c-main],
   [hover-c-main]:hover {
-    color: var(--main-color);
+    color: var(--main-color) !important;
+  }
+  .main-header {
+    @apply absolute top-12 left-1/2 -translate-x-1/2 text-black font-bold text-4xl;
   }
   .settings-box {
     transition: 0.3s;
@@ -57,5 +60,15 @@
   }
   .landing nav ul.show li {
     @apply py-4 flex justify-center text-lg;
+  }
+  #skills progress {
+    @apply w-full h-7;
+  }
+  #skills progress::-webkit-progress-bar {
+    @apply bg-gray-200 text-red-600;
+  }
+  #skills progress::-webkit-progress-value {
+    @apply transition-medium;
+    background-color: var(--main-color);
   }
 }
