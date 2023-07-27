@@ -11,12 +11,18 @@ let settingsIcon = document.querySelector(".settings-box i");
 let colorSetting = document.querySelectorAll(".settings-box .colors li");
 let randomBgSetting = document.querySelectorAll(".settings-box .randomBg button");
 let bulletsSetting = document.querySelectorAll(".settings-box .bullets button");
+let galleries = document.querySelectorAll("#gallery .box");
 let randomInt;
-let images = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
+let images = [
+    "landing-1.jpg",
+    "landing-2.jpg",
+    "landing-3.jpg",
+    "landing-4.jpg",
+];
 let randomImageInt = setInterval(() => {
     let randomNum = Math.floor(Math.random() * images.length);
     if (landingBg !== null)
-        landingBg.style.backgroundImage = `url(../src/assets/imgs/landing/${images[randomNum]})`;
+        landingBg.style.backgroundImage = `url(../src/assets/imgs/${images[randomNum]})`;
 }, 10000);
 if (localStorage.getItem("main-color") !== null) {
     let savedColor = eval(`${localStorage.getItem("main-color")}`);
@@ -112,5 +118,32 @@ let observer = new IntersectionObserver((sections) => {
 });
 allSects.forEach((sect) => {
     observer.observe(sect);
+});
+galleries.forEach((gallery) => {
+    gallery.addEventListener("click", function () {
+        var _a;
+        let boxContainer = document.createElement("div");
+        let box = document.createElement("div");
+        let close = document.createElement("i");
+        close.classList.add("fa-solid", "fa-xmark");
+        close.addEventListener("click", function name() {
+            boxContainer.remove();
+        });
+        box.appendChild(close);
+        let h1 = document.createElement("h1");
+        h1.textContent = gallery.getAttribute("data-text");
+        h1.setAttribute("c-main", "");
+        box.appendChild(h1);
+        let img = document.createElement("img");
+        if (gallery.children.item(0) !== null) {
+            img === null || img === void 0 ? void 0 : img.setAttribute("src", `${(_a = gallery.children.item(1)) === null || _a === void 0 ? void 0 : _a.getAttribute("src")}`);
+            img === null || img === void 0 ? void 0 : img.setAttribute("alt", "");
+        }
+        box.appendChild(img);
+        box.id = "gallery-box";
+        boxContainer.id = "gallery-box-container";
+        boxContainer.appendChild(box);
+        document.body.appendChild(boxContainer);
+    });
 });
 //# sourceMappingURL=script.js.map

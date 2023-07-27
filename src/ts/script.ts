@@ -18,18 +18,24 @@ let randomBgSetting: NodeListOf<Element> = document.querySelectorAll(
 let bulletsSetting: NodeListOf<Element> = document.querySelectorAll(
 	".settings-box .bullets button",
 );
+let galleries: NodeListOf<Element> = document.querySelectorAll("#gallery .box");
 let randomInt: any;
 
 // Random background
 
 // array of images
 
-let images: string[] = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
+let images: string[] = [
+	"landing-1.jpg",
+	"landing-2.jpg",
+	"landing-3.jpg",
+	"landing-4.jpg",
+];
 
 let randomImageInt = setInterval(() => {
 	let randomNum: number = Math.floor(Math.random() * images.length);
 	if (landingBg !== null)
-		landingBg.style.backgroundImage = `url(../src/assets/imgs/landing/${images[randomNum]})`;
+		landingBg.style.backgroundImage = `url(../src/assets/imgs/${images[randomNum]})`;
 }, 10000);
 
 // check if there is any saved color
@@ -86,7 +92,7 @@ if (settingsIcon !== null)
 // options boxes
 
 // setting active class to clicked button
-function settingsFunc(parent: NodeListOf<Element>) {
+function settingsFunc(parent: NodeListOf<Element>): void {
 	parent.forEach((button: Element) => {
 		button.addEventListener("click", function () {
 			parent.forEach((button: Element) =>
@@ -172,4 +178,40 @@ let observer: IntersectionObserver = new IntersectionObserver(
 
 allSects.forEach((sect: Element) => {
 	observer.observe(sect);
+});
+
+// gallery
+
+galleries.forEach((gallery: Element) => {
+	gallery.addEventListener("click", function () {
+		let boxContainer = document.createElement("div");
+
+		let box = document.createElement("div");
+		// set the close button
+		let close: Element = document.createElement("i");
+		close.classList.add("fa-solid", "fa-xmark");
+		close.addEventListener("click", function name() {
+			boxContainer.remove();
+		});
+		box.appendChild(close);
+		// set the name of the img
+		let h1: HTMLHeadElement = document.createElement("h1");
+		h1.textContent = gallery.getAttribute("data-text");
+		h1.setAttribute("c-main", "");
+		box.appendChild(h1);
+		// set the img
+		let img: Element = document.createElement("img");
+		if (gallery.children.item(0) !== null) {
+			img?.setAttribute(
+				"src",
+				`${gallery.children.item(1)?.getAttribute("src")}`,
+			);
+			img?.setAttribute("alt", "");
+		}
+		box.appendChild(img);
+		box.id = "gallery-box";
+		boxContainer.id = "gallery-box-container";
+		boxContainer.appendChild(box);
+		document.body.appendChild(boxContainer);
+	});
 });

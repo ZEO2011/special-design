@@ -481,8 +481,10 @@ section{
   position: absolute;
   top: 3rem;
   left: 50%;
+  display: inline-block;
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  white-space: nowrap;
   font-size: 2.25rem;
   line-height: 2.5rem;
   font-weight: 700;
@@ -490,8 +492,10 @@ section{
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.settings-box {
-  transition: 0.3s;
+.settings-box{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .settings-box.show{
@@ -518,12 +522,12 @@ section{
   opacity: 1;
 }
 
-.landing {
-  background: url("../../src/assets/imgs/landing/01.jpg") no-repeat;
+#landing {
+  background: url("../src/assets/imgs/landing-1.jpg") no-repeat;
   background-size: cover;
 }
 
-.landing nav ul.show{
+#landing nav ul.show{
   left: 0px;
   top: 10%;
   display: flex;
@@ -534,7 +538,7 @@ section{
   --tw-bg-opacity: 0.4;
 }
 
-.landing nav ul.show li{
+#landing nav ul.show li{
   display: flex;
   justify-content: center;
   padding-top: 1rem;
@@ -556,11 +560,79 @@ section{
 }
 
 #skills progress::-webkit-progress-value{
-  -webkit-transition-property: 2s;
-  transition-property: 2s;
+  -webkit-transition-property: all;
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  transition-duration: 0.8s;
   background-color: var(--main-color);
+}
+
+#gallery .box.show{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+#gallery .box.show img{
+  width: 100%;
+  opacity: 1;
+}
+
+#gallery-box-container{
+  position: fixed;
+  inset: 0px;
+  z-index: 50;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.7;
+}
+
+#gallery-box-container #gallery-box{
+  position: relative;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 1rem;
+}
+
+#gallery-box-container #gallery-box i{
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  display: grid;
+  height: 1.75rem;
+  width: 1.75rem;
+  cursor: pointer;
+  place-items: center;
+  border-radius: 50%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#gallery-box-container #gallery-box h1{
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+#gallery-box-container #gallery-box img{
+  width: 17rem;
+}
+
+@media (min-width: 888px){
+  #gallery-box-container #gallery-box img{
+    width: 35rem;
+  }
 }
 
 *, ::before, ::after{
@@ -699,6 +771,10 @@ section{
   z-index: 20;
 }
 
+.z-40{
+  z-index: 40;
+}
+
 .m-4{
   margin: 1rem;
 }
@@ -772,16 +848,20 @@ section{
   width: 60%;
 }
 
+.w-44{
+  width: 11rem;
+}
+
+.w-48{
+  width: 12rem;
+}
+
 .w-5{
   width: 1.25rem;
 }
 
 .w-52{
   width: 13rem;
-}
-
-.w-64{
-  width: 16rem;
 }
 
 .w-8{
@@ -805,12 +885,24 @@ section{
   flex-direction: column;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .place-items-center{
   place-items: center;
 }
 
+.\!items-center{
+  align-items: center !important;
+}
+
 .items-center{
   align-items: center;
+}
+
+.\!justify-center{
+  justify-content: center !important;
 }
 
 .justify-center{
@@ -833,6 +925,10 @@ section{
   gap: 1rem;
 }
 
+.gap-5{
+  gap: 1.25rem;
+}
+
 .gap-6{
   gap: 1.5rem;
 }
@@ -851,6 +947,10 @@ section{
 
 .rounded-md{
   border-radius: 0.375rem;
+}
+
+.border-2{
+  border-width: 2px;
 }
 
 .bg-gray-100{
@@ -919,6 +1019,11 @@ section{
   padding-right: 3rem;
 }
 
+.px-14{
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
@@ -931,6 +1036,10 @@ section{
 
 .pb-12{
   padding-bottom: 3rem;
+}
+
+.pb-16{
+  padding-bottom: 4rem;
 }
 
 .pt-32{
@@ -1052,6 +1161,10 @@ section{
 
   .xd\:pr-32{
     padding-right: 8rem;
+  }
+
+  .xd\:text-left{
+    text-align: left;
   }
 
   .xd\:text-3xl{

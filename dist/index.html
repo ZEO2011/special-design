@@ -12,14 +12,14 @@
 		<!-- Normalize CSS -->
 		<link rel="stylesheet" href="css/normalize.css" />
 		<!-- TailwindCSS library -->
-		<link rel="stylesheet" href="css/output.css" />
+		<link rel="stylesheet" href="output.css" />
 		<!-- Compiled CSS -->
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body class="w-full h-full">
 		<!-- setting box -->
 		<div
-			class="settings-box fixed inset-0 w-52 h-full z-20 bg-white -left-52"
+			class="settings-box fixed inset-0 w-52 h-full z-40 bg-white -left-52"
 		>
 			<i
 				class="fa-solid fa-gear fa-spin cursor-pointer absolute -right-8 top-32 w-8 h-8 bg-white grid place-items-center"
@@ -118,7 +118,7 @@
 			</div>
 		</div>
 		<!-- Landing -->
-		<section class="landing relative">
+		<section id="landing" class="relative">
 			<div class="overlay">
 				<header
 					class="text-white px-12 sm:px-16 xd:px-28 pt-6 flex justify-between"
@@ -186,8 +186,15 @@
 			<div
 				class="text w-3/5 flex justify-center items center flex-col xd:pr-32 xd:pl-12 xd:py-24 py-12"
 			>
-				<h1 c-main class="text-3xl font-bold mb-2">about us</h1>
-				<p class="leading-loose text-gray-500">
+				<h1
+					c-main
+					class="text-3xl font-bold mb-2 xd:text-left text-center"
+				>
+					about us
+				</h1>
+				<p
+					class="leading-loose text-gray-500 xd:text-left text-center"
+				>
 					Lorem ipsum dolor, sit amet consectetur adipisicing
 					elit. Nobis explicabo illum sequi! Doloremque totam
 					reprehenderit quas consectetur rem dolorum maxime iusto
@@ -196,12 +203,12 @@
 				</p>
 			</div>
 			<div
-				class="img-container w-2/5 h-full grid place-items-center xd:p-12"
+				class="img-container w-2/5 h-full grid place-items-center xd:p-12 pb-16"
 			>
 				<img
 					src="../src/assets/imgs/about-us.jpg"
 					alt="about us img"
-					class="w-64"
+					class="w-48"
 				/>
 			</div>
 		</section>
@@ -261,6 +268,124 @@
 						<progress data-goal="70" max="100"></progress>
 					</li>
 				</ul>
+			</div>
+		</section>
+		<!-- Gallery -->
+		<section id="gallery" class="gallery relative h-fit">
+			<h1 class="main-header" c-main>gallery</h1>
+			<div
+				class="boxes w-full h-fit px-14 gap-5 flex-wrap flex !justify-center !items-center pt-32 pb-12"
+			>
+				<div
+					data-text="image one"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/landing-1.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image two"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/landing-2.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image three"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/landing-3.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image four"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/landing-4.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image five"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-1.png"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image six"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-2.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image seven"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-3.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image eight"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-4.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image nine"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-5.jpg"
+						alt=""
+					/>
+				</div>
+				<div
+					data-text="image ten"
+					class="box p-1 border-2 cursor-pointer"
+				>
+					<h1 c-main></h1>
+					<img
+						class="w-44"
+						src="../src/assets/imgs/gallery-6.jpg"
+						alt=""
+					/>
+				</div>
 			</div>
 		</section>
 		<!-- main js -->

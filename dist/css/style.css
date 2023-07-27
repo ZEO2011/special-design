@@ -34,10 +34,10 @@
     color: var(--main-color) !important;
   }
   .main-header {
-    @apply absolute top-12 left-1/2 -translate-x-1/2 text-black font-bold text-4xl;
+    @apply absolute top-12 left-1/2 -translate-x-1/2 text-black font-bold text-4xl inline-block whitespace-nowrap;
   }
   .settings-box {
-    transition: 0.3s;
+    @apply transition-all;
   }
   .settings-box.show {
     @apply left-0;
@@ -51,14 +51,14 @@
   .settings-box .settings :is(.randomBg, .bullets) button.active {
     @apply opacity-100;
   }
-  .landing {
-    background: url("../../src/assets/imgs/landing/01.jpg") no-repeat;
+  #landing {
+    background: url("../src/assets/imgs/landing-1.jpg") no-repeat;
     background-size: cover;
   }
-  .landing nav ul.show {
+  #landing nav ul.show {
     @apply flex w-full flex-col left-0 top-[10%] bg-white bg-opacity-40 gap-0;
   }
-  .landing nav ul.show li {
+  #landing nav ul.show li {
     @apply py-4 flex justify-center text-lg;
   }
   #skills progress {
@@ -68,7 +68,28 @@
     @apply bg-gray-200 text-red-600;
   }
   #skills progress::-webkit-progress-value {
-    @apply transition-medium;
+    @apply transition-all duration-medium;
     background-color: var(--main-color);
+  }
+  #gallery .box.show {
+    @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  #gallery .box.show img {
+    @apply w-full opacity-100;
+  }
+  #gallery-box-container {
+    @apply fixed w-full h-full inset-0 grid place-items-center bg-black bg-opacity-70  z-50;
+  }
+  #gallery-box-container #gallery-box {
+    @apply bg-white p-4 relative;
+  }
+  #gallery-box-container #gallery-box i {
+    @apply w-7 h-7 bg-red-500 grid place-items-center absolute -top-2 -right-2 cursor-pointer text-white rounded-[50%];
+  }
+  #gallery-box-container #gallery-box h1 {
+    @apply text-xl font-bold text-center pb-4;
+  }
+  #gallery-box-container #gallery-box img {
+    @apply w-[17rem] xd:w-[35rem];
   }
 }

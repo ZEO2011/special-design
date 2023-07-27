@@ -13,8 +13,8 @@ module.exports = {
 			screens: {
 				xd: { min: "888px" },
 			},
-			transitionProperty: {
-				medium: "2s",
+			transitionDuration: {
+				medium: "0.8s",
 			},
 		},
 	},
