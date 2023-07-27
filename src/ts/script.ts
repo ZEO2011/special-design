@@ -1,6 +1,7 @@
 // Variables
 let html: HTMLHtmlElement | null = document.querySelector("html");
 let allSects: NodeListOf<Element> = document.querySelectorAll("section");
+let bullets: HTMLElement | null = document.getElementById("bullets");
 let menu: HTMLElement | null = document.getElementById("menu");
 let menuIcon: HTMLElement | null = document.querySelector("#menu i");
 let linksContainer: HTMLElement | null = document.querySelector("nav .links");
@@ -56,10 +57,14 @@ if (localStorage.getItem("main-color") !== null) {
 // check if user wasn't wan't to random image
 
 // make clicked button active
-function removeAllExcept(status: string) {
-	randomBgSetting.forEach((button) => {
+function removeAllExcept(
+	status: string,
+	parent: NodeListOf<Element>,
+	attrName: string,
+) {
+	parent.forEach((button) => {
 		button.classList.remove("active");
-		if (button.getAttribute("random") === status) {
+		if (button.getAttribute(attrName) === status) {
 			button.classList.add("active");
 		}
 	});
@@ -70,9 +75,19 @@ if (localStorage.getItem("randomImage") !== null) {
 		// clear interval of random image
 		clearInterval(randomImageInt);
 		clearInterval(randomInt);
-		removeAllExcept("false");
+		removeAllExcept("false", randomBgSetting, "random");
 	} else {
-		removeAllExcept("true");
+		removeAllExcept("true", randomBgSetting, "random");
+	}
+}
+
+if (localStorage.getItem("bullets") !== null) {
+	if (localStorage.getItem("bullets") === "false") {
+		// clear interval of random image
+		if (bullets !== null) bullets.style.display = "none";
+		removeAllExcept("false", bulletsSetting, "bullets");
+	} else {
+		removeAllExcept("true", bulletsSetting, "bullets");
 	}
 }
 
@@ -139,7 +154,19 @@ randomBgSetting.forEach((button: Element) => {
 		}
 	});
 });
-settingsFunc(bulletsSetting);
+
+bulletsSetting.forEach((button: Element) => {
+	settingsFunc(bulletsSetting);
+	button.addEventListener("click", function () {
+		if (button.getAttribute("bullets") === "false") {
+			if (bullets !== null) bullets.style.display = "none";
+			localStorage.setItem("bullets", "false");
+		} else {
+			if (bullets !== null) bullets.style.display = "flex";
+			localStorage.setItem("bullets", "true");
+		}
+	});
+});
 
 // observe all sections for animate it
 

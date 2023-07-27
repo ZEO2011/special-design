@@ -119,9 +119,12 @@
 			}
 		}
 	}
-	// contact me
+	// contact
 	#contact {
 		background: url("../src/assets/imgs/contact.png") no-repeat;
 		background-size: cover;
+		.overlay {
+			background-color: rgba(247, 241, 241, 0.815);
+		}
 	}
 }

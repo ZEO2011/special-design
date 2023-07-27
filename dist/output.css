@@ -641,6 +641,10 @@ section{
   background-size: cover;
 }
 
+#contact .overlay {
+  background-color: rgba(247, 241, 241, 0.815);
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -773,12 +777,24 @@ section{
   left: 50%;
 }
 
+.right-0{
+  right: 0px;
+}
+
+.top-1\/2{
+  top: 50%;
+}
+
 .top-32{
   top: 8rem;
 }
 
 .top-4{
   top: 1rem;
+}
+
+.-left-4{
+  left: -1rem;
 }
 
 .z-20{
@@ -814,16 +830,20 @@ section{
   margin-bottom: 0.75rem;
 }
 
-.mb-8{
-  margin-bottom: 2rem;
-}
-
 .mt-6{
   margin-top: 1.5rem;
 }
 
 .mt-9{
   margin-top: 2.25rem;
+}
+
+.mr-6{
+  margin-right: 1.5rem;
+}
+
+.ml-6{
+  margin-left: 1.5rem;
 }
 
 .block{
@@ -852,6 +872,10 @@ section{
 
 .h-10{
   height: 2.5rem;
+}
+
+.h-16{
+  height: 4rem;
 }
 
 .h-3\/4{
@@ -949,6 +973,11 @@ section{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-translate-y-1\/2{
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
@@ -1013,6 +1042,10 @@ section{
   gap: 2.25rem;
 }
 
+.gap-1{
+  gap: 0.25rem;
+}
+
 .scroll-smooth{
   scroll-behavior: smooth;
 }
@@ -1035,6 +1068,11 @@ section{
 
 .border-2{
   border-width: 2px;
+}
+
+.bg-\[\#333\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 51 51 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100{
@@ -1265,6 +1303,18 @@ section{
   transition-duration: 150ms;
 }
 
+.transition-opacity{
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .before\:absolute::before{
   content: var(--tw-content);
   position: absolute;
@@ -1295,9 +1345,54 @@ section{
   left: 50%;
 }
 
+.before\:-left-4::before{
+  content: var(--tw-content);
+  left: -1rem;
+}
+
+.before\:-left-12::before{
+  content: var(--tw-content);
+  left: -3rem;
+}
+
+.before\:-left-16::before{
+  content: var(--tw-content);
+  left: -4rem;
+}
+
+.before\:-left-20::before{
+  content: var(--tw-content);
+  left: -5rem;
+}
+
+.before\:-left-24::before{
+  content: var(--tw-content);
+  left: -6rem;
+}
+
+.before\:right-12::before{
+  content: var(--tw-content);
+  right: 3rem;
+}
+
+.before\:right-10::before{
+  content: var(--tw-content);
+  right: 2.5rem;
+}
+
+.before\:right-8::before{
+  content: var(--tw-content);
+  right: 2rem;
+}
+
 .before\:-z-10::before{
   content: var(--tw-content);
   z-index: -10;
+}
+
+.before\:mr-4::before{
+  content: var(--tw-content);
+  margin-right: 1rem;
 }
 
 .before\:hidden::before{
@@ -1368,8 +1463,76 @@ section{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.before\:p-4::before{
+  content: var(--tw-content);
+  padding: 1rem;
+}
+
+.before\:p-2::before{
+  content: var(--tw-content);
+  padding: 0.5rem;
+}
+
+.before\:px-2::before{
+  content: var(--tw-content);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.before\:py-1::before{
+  content: var(--tw-content);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.before\:text-white::before{
+  content: var(--tw-content);
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.before\:opacity-0::before{
+  content: var(--tw-content);
+  opacity: 0;
+}
+
 .before\:content-\[\'\'\]::before{
   --tw-content: '';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'about_us\'\]::before{
+  --tw-content: 'about us';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'about\'\]::before{
+  --tw-content: 'about';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'features\'\]::before{
+  --tw-content: 'features';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'gallery\'\]::before{
+  --tw-content: 'gallery';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'skills\'\]::before{
+  --tw-content: 'skills';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'testimonials\'\]::before{
+  --tw-content: 'testimonials';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'timeline\'\]::before{
+  --tw-content: 'timeline';
   content: var(--tw-content);
 }
 
@@ -1407,6 +1570,11 @@ section{
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(51 51 51 / var(--tw-bg-opacity));
+}
+
+.hover\:before\:block:hover::before{
+  content: var(--tw-content);
+  display: block;
 }
 
 .focus\:outline-none:focus{

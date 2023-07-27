@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body class="w-full h-full">
-		<!-- setting box -->
+		<!-- settings box -->
 		<div
 			class="settings-box fixed inset-0 w-52 h-full z-40 bg-white -left-52"
 		>
@@ -94,12 +94,14 @@
 					>
 						<div class="buttons flex gap-2">
 							<button
+								bullets="true"
 								bg-main
 								class="text-white font-semibold px-4 rounded-md opacity-50 active"
 							>
 								yes
 							</button>
 							<button
+								bullets="false"
 								bg-main
 								class="text-white font-semibold px-4 rounded-md opacity-50"
 							>
@@ -117,6 +119,49 @@
 				</div>
 			</div>
 		</div>
+		<!-- settings box -->
+		<div
+			id="bullets"
+			class="bullets-box fixed right-0 top-1/2 -translate-y-1/2 z-50 p-4 flex flex-col gap-1"
+		>
+			<a
+				before-bg-main
+				href="#about"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['about'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+			<a
+				before-bg-main
+				href="#skills"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['skills'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+			<a
+				before-bg-main
+				href="#gallery"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['gallery'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+			<a
+				before-bg-main
+				href="#timeline"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['timeline'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+			<a
+				before-bg-main
+				href="#features"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['features'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+			<a
+				before-bg-main
+				href="#testimonials"
+				class="relative before:absolute before:right-8 before:text-white before:py-1 before:px-2 before:content-['testimonials'] before:hidden transition-all hover:before:block"
+				><i c-main class="fa-regular fa-circle text-2xl"></i
+			></a>
+		</div>
+
 		<!-- Landing -->
 		<section id="landing" class="relative">
 			<div class="overlay">
@@ -616,7 +661,7 @@
 			class="relative before:-z-10 after:-z-10 h-fit before:absolute before:w-1/2 before:h-full before:bottom-0 py-28 after:absolute after:w-1/2 after:h-full after:bottom-0 after:right-0 after:bg-[#333]"
 		>
 			<h1
-				class="w-full text-center xd:text-left text-white text-3xl px-32 font-bold mb-8"
+				class="w-full text-center text-white text-3xl px-32 font-bold mb-10"
 			>
 				testimonials
 			</h1>
@@ -702,8 +747,7 @@
 		</section>
 		<!-- contact us -->
 		<section id="contact" class="h-3/4">
-			<div class="overlay"></div>
-			<div class="content w-full h-full relative">
+			<div class="overlay relative">
 				<h1 c-main class="main-header z-50">contact us</h1>
 				<div
 					class="form-container grid place-items-center w-full h-fit xd:h-full xd:p-0 pt-32 pb-12"
@@ -752,6 +796,14 @@
 				</div>
 			</div>
 		</section>
+		<!-- footer -->
+		<footer class="bg-[#333] h-16">
+			<h3
+				class="w-full h-full grid place-items-center text-white text-xl"
+			>
+				build with love by ziad hatem
+			</h3>
+		</footer>
 		<!-- main js -->
 		<script src="js/script.js"></script>
 	</body>

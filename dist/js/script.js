@@ -1,6 +1,7 @@
 "use strict";
 let html = document.querySelector("html");
 let allSects = document.querySelectorAll("section");
+let bullets = document.getElementById("bullets");
 let menu = document.getElementById("menu");
 let menuIcon = document.querySelector("#menu i");
 let linksContainer = document.querySelector("nav .links");
@@ -34,10 +35,10 @@ if (localStorage.getItem("main-color") !== null) {
         }
     });
 }
-function removeAllExcept(status) {
-    randomBgSetting.forEach((button) => {
+function removeAllExcept(status, parent, attrName) {
+    parent.forEach((button) => {
         button.classList.remove("active");
-        if (button.getAttribute("random") === status) {
+        if (button.getAttribute(attrName) === status) {
             button.classList.add("active");
         }
     });
@@ -46,10 +47,20 @@ if (localStorage.getItem("randomImage") !== null) {
     if (localStorage.getItem("randomImage") === "false") {
         clearInterval(randomImageInt);
         clearInterval(randomInt);
-        removeAllExcept("false");
+        removeAllExcept("false", randomBgSetting, "random");
     }
     else {
-        removeAllExcept("true");
+        removeAllExcept("true", randomBgSetting, "random");
+    }
+}
+if (localStorage.getItem("bullets") !== null) {
+    if (localStorage.getItem("bullets") === "false") {
+        if (bullets !== null)
+            bullets.style.display = "none";
+        removeAllExcept("false", bulletsSetting, "bullets");
+    }
+    else {
+        removeAllExcept("true", bulletsSetting, "bullets");
     }
 }
 if (menu !== null)
@@ -94,7 +105,21 @@ randomBgSetting.forEach((button) => {
         }
     });
 });
-settingsFunc(bulletsSetting);
+bulletsSetting.forEach((button) => {
+    settingsFunc(bulletsSetting);
+    button.addEventListener("click", function () {
+        if (button.getAttribute("bullets") === "false") {
+            if (bullets !== null)
+                bullets.style.display = "none";
+            localStorage.setItem("bullets", "false");
+        }
+        else {
+            if (bullets !== null)
+                bullets.style.display = "flex";
+            localStorage.setItem("bullets", "true");
+        }
+    });
+});
 let observer = new IntersectionObserver((sections) => {
     sections.forEach((section) => {
         section.target.classList.toggle("animate", section.isIntersecting);
