@@ -93,4 +93,8 @@
   #gallery-box-container #gallery-box img {
     @apply w-[17rem] xd:w-[35rem];
   }
+  #contact {
+    background: url("../src/assets/imgs/contact.png") no-repeat;
+    background-size: cover;
+  }
 }
